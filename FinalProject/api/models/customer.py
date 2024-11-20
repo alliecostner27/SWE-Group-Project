@@ -1,4 +1,4 @@
-from sqlalchemy import Column, ForeignKey, Integer, String, DECIMAL, DATETIME
+from sqlalchemy import Column, ForeignKey, Integer, String, DECIMAL, DateTime
 from sqlalchemy.orm import relationship
 from datetime import datetime
 from ..dependencies.database import Base
@@ -12,5 +12,3 @@ class Customer(Base):
     email = Column(String(255), index=True, nullable=False)
     phoneNum = Column(String(20), index=True, nullable=False)
     address = Column(String(300), index=True, nullable=False)
-
-
