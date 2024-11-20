@@ -3,7 +3,7 @@ from typing import Optional
 from pydantic import BaseModel
 from .order_details import OrderDetail
 
-
+# 
 
 class OrderBase(BaseModel):
     customer_name: str
@@ -23,6 +23,7 @@ class Order(OrderBase):
     id: int
     order_date: Optional[datetime] = None
     order_details: list[OrderDetail] = None
+    order_number: Optional[int] = None
 
     class ConfigDict:
         from_attributes = True
