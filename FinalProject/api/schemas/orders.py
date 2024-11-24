@@ -1,29 +1,35 @@
 from datetime import datetime
-from typing import Optional
+from typing import Optional, List
 from pydantic import BaseModel
 from .order_details import OrderDetail
+from .customer import Customer
+from .promo import Promo
+from .review import Review
 
-# 
 
 class OrderBase(BaseModel):
-    customer_name: str
+    customer_id: int
     description: Optional[str] = None
+    promo_code: Optional[str] = None
 
 
 class OrderCreate(OrderBase):
-    pass
+    order_details: List[OrderDetail]
 
 
 class OrderUpdate(BaseModel):
-    customer_name: Optional[str] = None
+    customer_id: Optional[int] = None
     description: Optional[str] = None
+    order_details: Optional[List[OrderDetail]] = None
 
 
 class Order(OrderBase):
-    id: int
+    id: int ## Primary Key
     order_date: Optional[datetime] = None
     order_details: list[OrderDetail] = None
-    order_number: Optional[int] = None
+    total_price: float = 0
+    customer: Customer ## reference full customer object
+    reviews: List[Review] = []
 
     class ConfigDict:
         from_attributes = True

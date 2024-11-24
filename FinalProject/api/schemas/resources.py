@@ -1,4 +1,3 @@
-from datetime import datetime
 from typing import Optional
 from pydantic import BaseModel
 
@@ -18,7 +17,7 @@ class ResourceUpdate(BaseModel):
 
 
 class Resource(ResourceBase):
-    id: int
+    id: int ## Primary Key
 
     class ConfigDict:
         from_attributes = True
