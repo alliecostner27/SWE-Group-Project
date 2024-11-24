@@ -9,5 +9,5 @@ class PaymentMethodBase(BaseModel):
 class PaymentMethod(PaymentMethodBase):
     id: int
     
-    class Config:
+    class ConfigDict:
         orm_mode = True

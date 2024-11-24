@@ -19,7 +19,7 @@ class RecipeUpdate(BaseModel):
     amount: Optional[int] = None
 
 class Recipe(RecipeBase):
-    id: int
+    id: int ## Primary Key
     sandwich: Sandwich = None
     resource: Resource = None
 
