@@ -5,12 +5,14 @@ from .order_details import OrderDetail
 from .customer import Customer
 from .promo import Promo
 from .review import Review
+from .payment_method import PaymentMethod
 
 
 class OrderBase(BaseModel):
     customer_id: int
     description: Optional[str] = None
     promo_code: Optional[str] = None
+
 
 
 class OrderCreate(OrderBase):
@@ -29,7 +31,8 @@ class Order(OrderBase):
     order_details: list[OrderDetail] = None
     total_price: float = 0
     customer: Customer ## reference full customer object
-    reviews: List[Review] = []
+    reviews: List[Review] = []  ## list of reviews associated with the order
+    payment_method: Optional[PaymentMethod] = None
 
     class ConfigDict:
         from_attributes = True
