@@ -1,6 +1,4 @@
 from pydantic import BaseModel, Field
-from .orders import Order
-
 
 class ReviewBase(BaseModel):
     order_id: int ## reference associated order id
