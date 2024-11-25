@@ -9,6 +9,8 @@ class ReviewBase(BaseModel):
 class ReviewCreate(ReviewBase):
     pass
 
+class ReviewUpdate(ReviewBase):
+    pass
 
 class Review(ReviewBase):
     id: int ## Primary Key
