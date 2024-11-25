@@ -8,6 +8,3 @@ class Promo(Base):
     id = Column(Integer, primary_key=True, index=True, autoincrement=True)
     code = Column(String(50), unique=True, nullable=False)
     expiration_date = Column(Date, nullable=False)
-
-    # Relationships
-    orders = relationship("Order", back_populates="promo")  # Assuming Order model exists

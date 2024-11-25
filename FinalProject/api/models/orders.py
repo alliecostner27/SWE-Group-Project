@@ -20,5 +20,4 @@ class Order(Base):
     order_details = relationship("OrderDetail", back_populates="order")
     reviews = relationship("Review", back_populates="order", lazy="dynamic")
     payment_method = relationship("PaymentMethod", back_populates="orders")
-    promo = relationship("Promo", back_populates="orders")
 
