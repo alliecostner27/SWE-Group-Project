@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from pydantic import Optional
+from typing import Optional
 
 class CustomerBase(BaseModel):
     name: str
