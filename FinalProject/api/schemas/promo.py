@@ -1,10 +1,9 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from datetime import date
-from typing import Optional
 
 class PromoBase(BaseModel):
-    code: int
-    expirationDate: date
+    code: str = Field(..., description="Promo Code")
+    expirationDate: date = Field(..., description="Expiration Date for Promo Code")
     
 
 class PromoCreate(PromoBase):
@@ -12,10 +11,10 @@ class PromoCreate(PromoBase):
 
 
 class Promo(PromoBase):
-    id: int
+    id: int ##Primary Key
     
-    class Config:
-        orm_mode = True
+    class ConfigDict:
+        from_attributes = True
         
 
 
