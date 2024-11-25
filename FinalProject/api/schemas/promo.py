@@ -9,6 +9,8 @@ class PromoBase(BaseModel):
 class PromoCreate(PromoBase):
     pass
 
+class PromoUpdate(PromoBase):
+    pass
 
 class Promo(PromoBase):
     id: int ##Primary Key
