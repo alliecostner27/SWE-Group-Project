@@ -4,7 +4,7 @@ from datetime import date
 class PromoBase(BaseModel):
     id: int = Field(..., description="Unique Identifier")
     code: str = Field(..., description="Promo Code")
-    expirationDate: date = Field(..., description="Expiration Date for Promo Code")
+    expiration_date: date = Field(..., description="Expiration Date for Promo Code")
     
 
 class PromoCreate(PromoBase):
