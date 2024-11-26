@@ -9,7 +9,9 @@ class PaymentMethodBase(BaseModel):
 
 class PaymentMethodCreate(PaymentMethodBase):
     pass
-    
+
+class PaymentMethodUpdate(PaymentMethodBase):
+    pass
 
 class PaymentMethod(PaymentMethodBase):
     id: int ## Primary Key
