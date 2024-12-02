@@ -13,6 +13,7 @@ router = APIRouter(
 def create(request: schema.PaymentMethodCreate, db: Session = Depends(get_db)):
     return controller.create(db=db, request=request)
 
+
 @router.get("/", response_model=list[schema.PaymentMethod])
 def read_all(db: Session = Depends(get_db)):
     return controller.read_all(db)

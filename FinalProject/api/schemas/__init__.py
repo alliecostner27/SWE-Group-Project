@@ -4,3 +4,4 @@ from .orders import OrderCreate, OrderUpdate, Order, OrderDetail
 from .payment_method import PaymentMethodCreate, PaymentMethod
 from .promo import PromoCreate, Promo
 from .review import ReviewCreate, Review
+from .payment_method import PaymentMethodBase, PaymentMethodCreate, PaymentMethodUpdate, PaymentMethod
