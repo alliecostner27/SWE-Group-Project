@@ -1,15 +1,16 @@
 from sqlalchemy.orm import Session
-from fastapi import HTTPException, status, Response, Depends
+from fastapi import HTTPException, status, Response
 from ..models import customer as model
 from sqlalchemy.exc import SQLAlchemyError
 
+
 def create(db: Session, request):
     new_item = model.Customer(
-        id = request.id,
-        name = request.name,
-        email = request.email,
-        phone_num = request.phone_num,
-        address = request.address
+        id=request.id,
+        name=request.name,
+        email=request.email,
+        phone_num=request.phone_num,
+        address=request.address
     )
 
     try:
@@ -22,6 +23,7 @@ def create(db: Session, request):
 
     return new_item
 
+
 def read_all(db: Session):
     try:
         result = db.query(model.Customer).all()
@@ -29,6 +31,7 @@ def read_all(db: Session):
         error = str(e)
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=error)
     return result
+
 
 def read_one(db: Session, item_id):
     try:
@@ -39,6 +42,7 @@ def read_one(db: Session, item_id):
         error = str(e)
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=error)
     return item
+
 
 def update(db: Session, item_id, request):
     try:
@@ -53,6 +57,7 @@ def update(db: Session, item_id, request):
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=error)
     return item.first()
 
+
 def delete(db: Session, item_id):
     try:
         item = db.query(model.Customer).filter(model.Customer.id == item_id)
@@ -64,4 +69,3 @@ def delete(db: Session, item_id):
         error = str(e)
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=error)
     return Response(status_code=status.HTTP_204_NO_CONTENT)
-
