@@ -3,7 +3,6 @@ from typing import Optional, List
 from pydantic import BaseModel
 from .order_details import OrderDetail
 from .customer import Customer
-from .promo import Promo
 from .review import Review
 from .payment_method import PaymentMethod
 
@@ -12,7 +11,7 @@ class OrderBase(BaseModel):
     customer_id: int
     description: Optional[str] = None
     promo_code: Optional[str] = None
-
+    status: str
 
 
 class OrderCreate(OrderBase):
