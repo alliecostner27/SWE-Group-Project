@@ -1,0 +1,19 @@
+{
+  "configurations": [
+    {
+      "name": "Python: FastAPI",
+      "type": "python",
+      "request": "launch",
+      "module": "uvicorn",
+      "args": ["api.main:app", "--reload", "--port", "8000"],
+      "cwd": "${workspaceFolder}/FinalProject",
+      "justMyCode": true,
+      "serverReadyAction": {
+        "action": "openExternally",
+        "pattern": "Application startup complete",
+        "uriFormat": "http://localhost:8000/docs",
+        "killOnServerStop": false
+      }
+    }
+  ]
+}
