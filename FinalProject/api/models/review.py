@@ -11,6 +11,6 @@ class Review(Base):
     score = Column(Integer, nullable=False)
 
     # Relationships
-    order = relationship("Order", back_populates="reviews")
+    order = relationship("Order")
     customer_id = Column(Integer, ForeignKey('customers.id'), nullable=True)
     customer = relationship("Customer", back_populates="reviews")

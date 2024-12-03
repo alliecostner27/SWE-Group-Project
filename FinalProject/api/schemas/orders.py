@@ -13,7 +13,6 @@ class OrderBase(BaseModel):
     order_detail_id: int ## reference order detail entry
     total_price: float = 0
     customer_id: int  ## reference full customer entry
-    review_id: int  ## review associated with the order entry
     payment_method_id: Optional[int]
 
 

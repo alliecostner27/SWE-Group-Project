@@ -12,3 +12,4 @@ class OrderDetail(Base):
 
     ## Relationships
     menu_item = relationship("MenuItem")
+    order = relationship("Order")

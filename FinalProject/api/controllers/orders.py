@@ -11,7 +11,6 @@ def create(db: Session, request):
         order_detail_id = request.order_detail_id,
         total_price = request.total_price,
         customer_id = request.customer_id,
-        review_id = request.review_id,
         payment_method_id = request.payment_method_id
     )
 
