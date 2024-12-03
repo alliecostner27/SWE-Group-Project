@@ -1,8 +1,8 @@
-from fastapi import APIRouter, Depends, FastAPI, status, Response
+from fastapi import APIRouter, Depends, status, Response
 from sqlalchemy.orm import Session
 from ..controllers import menu as controller
 from ..schemas import menu as schema
-from ..dependencies.database import engine, get_db
+from ..dependencies.database import get_db
 
 router = APIRouter(
     tags=['Menu Items'],
@@ -21,11 +21,9 @@ def read_all(db: Session = Depends(get_db)):
 def read_one(item_id: int, db: Session = Depends(get_db)):
     return controller.read_one(db, item_id=item_id)
 
-
 @router.put("/{item_id}", response_model=schema.MenuItem)
 def update(item_id: int, request: schema.MenuItemUpdate, db: Session = Depends(get_db)):
     return controller.update(db=db, request=request, item_id=item_id)
-
 
 @router.delete("/{item_id}")
 def delete(item_id: int, db: Session = Depends(get_db)):
