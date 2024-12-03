@@ -1,7 +1,6 @@
 from pydantic import BaseModel, Field
 
 class ReviewBase(BaseModel):
-    id: int
     order_id: int ## reference associated order id
     review: str = Field(..., description='The review text')
     score: int = Field(..., ge=1, le=5,  description='The score of the review (1 to 5)')

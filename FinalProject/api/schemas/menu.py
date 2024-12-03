@@ -11,7 +11,6 @@ class FoodCategoryEnum(str, Enum):
 
 
 class MenuItemBase(BaseModel):
-    id: int
     dish_name: str
     ingredients: List[str]
     price: float
@@ -24,7 +23,6 @@ class MenuItemCreate(MenuItemBase):
 
 
 class MenuItemUpdate(MenuItemBase):
-    id: Optional[int]
     dish_name: Optional[str]
     ingredients: Optional[List[str]]
     price: Optional[float]

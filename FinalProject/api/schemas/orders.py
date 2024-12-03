@@ -8,7 +8,6 @@ from .payment_method import PaymentMethod
 
 
 class OrderBase(BaseModel):
-    id: int
     order_date: Optional[datetime] = None
     order_detail_id: int ## reference order detail entry
     total_price: float = 0
