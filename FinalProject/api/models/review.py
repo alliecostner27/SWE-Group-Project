@@ -9,8 +9,8 @@ class Review(Base):
     order_id = Column(Integer, ForeignKey('orders.id'), nullable=False)
     review = Column(String(500), nullable=False)
     score = Column(Integer, nullable=False)
+    customer_id = Column(Integer, ForeignKey('customers.id'), nullable=True)
 
     # Relationships
     order = relationship("Order")
-    customer_id = Column(Integer, ForeignKey('customers.id'), nullable=True)
     customer = relationship("Customer", back_populates="reviews")
