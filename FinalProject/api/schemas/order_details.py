@@ -14,10 +14,8 @@ class OrderDetailCreate(OrderDetailBase):
     pass
 
 
-class OrderDetailUpdate(BaseModel):
-    menu_item_id: Optional[int] = None
-    quantity: Optional[int] = None
-    order_type: Optional[str] = None
+class OrderDetailUpdate(OrderDetailBase):
+    pass
 
 
 class OrderDetail(OrderDetailBase):

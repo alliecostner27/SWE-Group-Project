@@ -19,10 +19,8 @@ class OrderCreate(OrderBase):
     pass
 
 
-class OrderUpdate(BaseModel):
-    customer_id: Optional[int] = None
-    description: Optional[str] = None
-    order_details: Optional[OrderDetail] = None
+class OrderUpdate(OrderBase):
+    pass
 
 
 class Order(OrderBase):

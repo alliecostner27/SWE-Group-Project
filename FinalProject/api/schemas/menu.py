@@ -23,11 +23,7 @@ class MenuItemCreate(MenuItemBase):
 
 
 class MenuItemUpdate(MenuItemBase):
-    dish_name: Optional[str]
-    ingredients: Optional[List[str]]
-    price: Optional[float]
-    calories: Optional[float]
-    food_category: Optional[str]
+    pass
 
 
 class MenuItem(MenuItemBase):
