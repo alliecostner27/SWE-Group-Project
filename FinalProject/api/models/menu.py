@@ -7,20 +7,16 @@ class MenuItem(Base):
 
     id = Column(Integer, primary_key=True, index=True, autoincrement=True)
     dish_name = Column(String(100), nullable=False)
-    ingredients = Column(String(255), nullable=False)  # Consider storing as a comma-separated string or using a separate table for ingredients
+    ingredients = Column(String(255), nullable=False)  # Stored as comma-separated string
     price = Column(Float, nullable=False)
     calories = Column(Integer, nullable=False)
-    food_category = Column(String(50), nullable=False)  # You could also use an Enum type if supported by your database
+    food_category = Column(String(50), nullable=False)
 
-    # Relationships
-    menu_id = Column(Integer, ForeignKey('menus.id'), nullable=True)  # Assuming a menus table exists
-    menu = relationship("Menu", back_populates="items")  # Establishing a relationship with Menu
-
+    menu_id = Column(Integer, ForeignKey('menus.id'), nullable=True)
+    menu = relationship("Menu", back_populates="items")
 
 class Menu(Base):
     __tablename__ = "menus"
 
     id = Column(Integer, primary_key=True, index=True, autoincrement=True)
-
-    # Relationships
-    items = relationship("MenuItem", back_populates="menu", lazy='dynamic')  # Establishing a relationship with MenuItem
+    items = relationship("MenuItem", back_populates="menu", lazy='dynamic')

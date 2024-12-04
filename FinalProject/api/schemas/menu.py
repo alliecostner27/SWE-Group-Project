@@ -15,8 +15,7 @@ class MenuItemBase(BaseModel):
     ingredients: List[str]
     price: float
     calories: int
-    food_category: str
-
+    food_category: FoodCategoryEnum
 
 class MenuItemCreate(MenuItemBase):
     pass
@@ -27,14 +26,13 @@ class MenuItemUpdate(MenuItemBase):
 
 
 class MenuItem(MenuItemBase):
-    id: int ## Primary Key
+    id: int
 
     class Config:
         from_attributes = True
 
-## menu added as container for multiple menuItem objects
 class Menu(BaseModel):
     items: List[MenuItem]
 
-    class ConfigDict:
+    class Config:
         from_attributes = True
